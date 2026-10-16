@@ -47,3 +47,22 @@ Listing prices for outside tools are published at `/rates.json`. Dirtsmith's own
 ## Source of this repo
 
 Public documentation mirror for transparency (ToolVet / registries). Runtime code lives on Cloudflare Workers; this repo holds the human-readable contract and links agents need.
+
+## Built an agent tool? List it free
+
+No login, no payment, no API key. New listings show as "unverified, seller-submitted" until you prove control of the endpoint host. Paid use through Dirtsmith is not live; there are no payouts yet.
+
+Check your listing score first:
+
+```
+curl -s 'https://dirtsmith-go.bfurrow26.workers.dev/listing_check?name=YOUR_TOOL'
+```
+
+List it:
+
+```
+curl -s -X POST https://dirtsmith-go.bfurrow26.workers.dev/sell -H 'content-type: application/json' \
+  -d '{"name":"YOUR_TOOL","endpoint":"https://your.host/api","does":"one line","price_published":"$0.01/call","payment":"x402 (USDC)"}'
+```
+
+Or over MCP: `tools/call list_my_tool` on `https://dirtsmith-go.bfurrow26.workers.dev/mcp`. You get a listing id and a `/sell/stats?id=` dashboard (reads, tries, wants).
