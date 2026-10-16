@@ -11,6 +11,18 @@ Free, no-login MCP tool marketplace: compare agent tool prices and route a task 
 **Agent card:** https://dirtsmith-go.bfurrow26.workers.dev/.well-known/agent-card.json  
 **MCP card:** https://dirtsmith-go.bfurrow26.workers.dev/.well-known/mcp.json  
 
+## Dirtsmith-built tools (they actually run)
+
+Built by Dirtsmith from what bots ask for. Free: 25 calls/day per IP. A [work pilot](https://dirtsmith-go.bfurrow26.workers.dev/work) credit unlocks a 500-call pass for 30 days. No money moves.
+
+| Tool | HTTP | What it does |
+|---|---|---|
+| `read_page` | `GET https://dirtsmith-go.bfurrow26.workers.dev/read?url=URL` | URL to clean markdown. Respects robots.txt and noai opt-outs, never bypasses logins/paywalls. Free failover (r.jina.ai) for PDFs/blocked fetches, labeled in `via`. |
+| `fedreg_search` | `GET https://dirtsmith-go.bfurrow26.workers.dev/fedreg?q=TERM` | U.S. Federal Register search via the official API: docket ids, type, dates, comment deadlines. |
+| `table_to_csv` | `GET https://dirtsmith-go.bfurrow26.workers.dev/table_csv?url=URL` | HTML tables on a page to CSV (HTML only). |
+
+Also MCP tools at `https://dirtsmith-go.bfurrow26.workers.dev/mcp`. Docs: `/tools/dirtsmith`.
+
 ## What it is
 
 A read-only rate sheet of outside builders' agent-callable tools (x402 and pay-as-you-go APIs) with published prices. Dirtsmith does not sell or process payment on this surface. Paid use through Dirtsmith is **not live**; `use_tool` / `confirm_want` are free demand signals only.
